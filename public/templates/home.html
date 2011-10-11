@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div id="home">
+        <div id="home-links">
+            <ul>
+                <li class="about">
+                    <a href="/about">{{ _('about me') }}</a>
+                </li>
+                <li class="portfolio">
+                    <a href="/portfolio">{{ _('portfolio') }}</a>
+                </li>
+                <li class="services">
+                    <a href="/services">{{ _('services') }}</a>
+                </li>
+                <li class="contact">
+                    <a href="/contacts">{{ _('contacts') }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block page_title %}
+    Blog
+{% endblock %}
+{% block content %}
+    <div id="blog">
+        {% if posts %}
+            {% for post in posts.object_list %}
+                <ul class="posts">
+                    <li class="blog-post">
+                        <h1><a class="more" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+                        <span>{{ post.text|linebreaksbr|truncatewords:10 }}</span>
+                        <a class="more" href="{{ post.get_absolute_url }}">More</a>
+                    </li>
+                </ul>
+            {% endfor %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if posts.has_previous %}
+                        <a href="?page={{ posts.previous_page_number }}">previous</a>
+                    {% endif %}
+                    <span class="current">
+                        {{ posts.number }} of {{ posts.paginator.num_pages }}
+                    </span>
+                    {% if posts.has_next %}
+                        <a href="?page={{ posts.next_page_number }}">next</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% else %}
+            Not append posts :(
+        {% endif %}
+    </div>
+{% endblock %}

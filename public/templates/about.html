@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block page_title %}
+    About me
+{% endblock %}
+{% block content %}
+    <div id="about">
+        <div class="about-left">
+            {{ about.description }}
+        </div>
+        <div class="about-right">
+            <a id="my-cv" href="{{ MEDIA_URL }}{{ settings.cv }}">
+                <button>Download CV</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

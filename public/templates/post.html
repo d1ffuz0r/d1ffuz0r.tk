@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block page_title %}
+    {{ post.title|capfirst }}
+{% endblock %}
+{% block content %}
+    <div id="post">
+        {{ post.text|linebreaksbr }}
+    </div>
+{% endblock %}
