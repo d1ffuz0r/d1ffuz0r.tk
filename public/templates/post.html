@@ -4,6 +4,6 @@
 {% endblock %}
 {% block content %}
     <div id="post">
-        {{ post.text|linebreaksbr }}
+        {{ post.text|safe|linebreaksbr }}
     </div>
 {% endblock %}

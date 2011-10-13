@@ -9,7 +9,7 @@
                 <ul class="posts">
                     <li class="blog-post">
                         <h1><a class="more" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
-                        <span>{{ post.text|linebreaksbr|truncatewords:10 }}</span>
+                        <span>{{ post.text|safe|linebreaksbr|truncatewords:10 }}</span>
                         <a class="more" href="{{ post.get_absolute_url }}">More</a>
                     </li>
                 </ul>

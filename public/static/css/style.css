@@ -638,7 +638,11 @@ body {
 #post {
     width: 915px;
     margin: 0 auto;
-    font-family: Helvetica;
+    font: 18px Helvetica;
+    color: #515966;
+}
+#post a{
+    font: 18px Helvetica;
     color: #515966;
 }
 
@@ -671,6 +675,11 @@ body {
     width: 100%;
     color: #515966;
     text-align: left;
+    font: 18px Helvetica;
+}
+.blog-post span a{
+    font: 18px Helvetica;
+    color: #515966;
 }
 
 .blog-post .more {
