@@ -1,9 +1,4 @@
 {% extends 'base.html' %}
-{% block page_title %}
-    {{ post.title|capfirst }}
-{% endblock %}
-{% block content %}
-    <div id="post">
+{% block page_title %}{{ post.title|capfirst }}{% endblock %}{% block content %}<div id="post">
         {{ post.text|safe|linebreaksbr }}
-    </div>
-{% endblock %}
+      </div>{% endblock %}

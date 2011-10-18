@@ -1,24 +1,11 @@
 {% extends 'base.html' %}
-{% block page_title %}
-    Services
-{% endblock %}
-{% block content %}
-    <div id="services">
+{% block page_title %}Services{% endblock %}{% block content %}<div id="services">
         <div class="services-items">
-            <ul>
-                {% if services %}
-                    {% for service in services %}
-                        <li class="service-item">
-                            <div class="service-item-image">
-                                <img src="{{ MEDIA_URL }}{{ service.image }}" height="100" alt=""/>
-                            </div>
-                            <div class="service-item-desc">{{ service.description }}</div>
-                        </li>
-                    {% endfor %}
-                {% else %}
-                    {{ _('Not append services :(')|capfirst }}
-                {% endif %}
-            </ul>
+          <ul>{% if services %}{% for service in services %}
+            <li class="service-item">
+              <div class="service-item-image"><img src="{{ MEDIA_URL }}{{ service.image }}" height="100" alt=""/></div>
+              <div class="service-item-desc">{{ service.description }}</div>
+            </li>{% endfor %}{% else %}{{ _('Not append services :(')|capfirst }}{% endif %}
+          </ul>
         </div>
-    </div>
-{% endblock %}
+    </div>{% endblock %}

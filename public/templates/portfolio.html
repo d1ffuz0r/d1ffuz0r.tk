@@ -1,31 +1,18 @@
 {% extends 'base.html' %}
-{% block page_title %}
-    Portfolio
-{% endblock %}
-{% block content %}
-    <div id="portfolio">
-        {% if works %}
-            {% for work in works %}
-                <ul>
-                    <li class="portfolio-item">
-                        <div class="left-col">
-                            <h1>{{ work.title }}</h1>
-
-                            <h2>{{ work.description }}</h2>
-                            <a class="more" target="_blank" href="{{ work.link }}">Link</a>
-
-                            <div class="type">
-                                <b>{{ _('type work')|capfirst }}:</b> {{ work.type }}
-                            </div>
-                        </div>
-                        <div class="right-col">
-                            <img src="{{ MEDIA_URL }}{{ work.image }}" alt=""/>
-                        </div>
-                    </li>
-                </ul>
-            {% endfor %}
-        {% else %}
-            Not append works :(
-        {% endif %}
-    </div>
-{% endblock %}
+{% block page_title %}Portfolio{% endblock %}{% block content %}<div id="portfolio">
+        {% if works %}{% for work in works %}<ul>
+          <li class="portfolio-item">
+            <div class="left-col">
+              <h1>{{ work.title }}</h1>
+              <h2>{{ work.description }}</h2>
+              <a class="more" target="_blank" href="{{ work.link }}">Link</a>
+              <div class="type">
+                <b>{{ _('type work')|capfirst }}:</b> {{ work.type }}
+              </div>
+            </div>
+            <div class="right-col">
+              <img src="{{ MEDIA_URL }}{{ work.image }}" alt=""/>
+            </div>
+          </li>
+        </ul>{% endfor %}{% else %}Not append works :({% endif %}
+      </div>{% endblock %}
