@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.shortcuts import get_object_or_404
 from models import Services, Portfolio, Settings, About, Blog
 from homesite.forms import QuickContactForm
 from django.http import HttpResponse
@@ -48,7 +49,7 @@ def blog_list(request):
 
 @render_to('post.html')
 def blog_post(request,post_id):
-    post = Blog.objects.get(id = post_id)
+    post = get_object_or_404(Blog, id = post_id)
     return {'page': 'blog', 'post': post}
 
 def quick_form(request):
