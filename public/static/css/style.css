@@ -100,13 +100,14 @@ body {
 
 #latest-post ul li,
 #activity ul li {
-    width: 217px;
+    width: 214px;
     min-height: 45px;
     padding: 5px 0px 5px 5px;
     color: #ffffff;
     text-shadow: #323742 1px 0px 0px;
     margin-right: 0px;
     background: url('../images/social-split.png') repeat-x bottom left;
+    word-wrap: break-word;
 }
 
 #latest-post ul li a,
