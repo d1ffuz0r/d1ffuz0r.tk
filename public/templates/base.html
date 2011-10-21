@@ -2,8 +2,11 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>{{ page|capfirst }}</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="d1ffuz0r, d1fffuz0r@gmail.com" />
+    <meta name="keywords" content="d1ffuz0r, blog, contacts, portfolio, services, python, django, tornado, jQuery" />
+    <meta name="description" content="d1ffuz0r personal site, blog, portfolio" />
     <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/site.js" charset="utf-8"></script>
@@ -13,11 +16,11 @@
       <div id="menu">
         <ul>
           <li><a href="/"><button class="{% ifequal page 'home' %}active{% else %}button{% endifequal %}">{{ _('home')|capfirst }}</button></a></li>
-          <li><a href="/about"><button class="button{% ifequal page 'about' %} active{% endifequal %}">{{ _('about me')|capfirst }}</button></a></li>
-          <li><a href="/blog"><button class="button{% ifequal page 'blog' %} active{% endifequal %}">{{ _('blog')|capfirst }}</button></a></li>
-          <li><a href="/portfolio"><button class="button{% ifequal page 'portfolio' %} active{% endifequal %}">{{ _('portfolio')|capfirst }}</button></a></li>
-          <li><a href="/services"><button class="button{% ifequal page 'services' %} active{% endifequal %}">{{ _('services')|capfirst }}</button></a></li>
-          <li><a href="/contacts"><button class="button last{% ifequal page 'contacts' %} active{% endifequal %}">{{ _('contacts')|capfirst }}</button></a></li>
+          <li><a href="/about/"><button class="{% ifequal page 'about' %} active{% else %}button{% endifequal %}">{{ _('about me')|capfirst }}</button></a></li>
+          <li><a href="/blog/"><button class="{% ifequal page 'blog' %} active{% else %}button{% endifequal %}">{{ _('blog')|capfirst }}</button></a></li>
+          <li><a href="/portfolio/"><button class="{% ifequal page 'portfolio' %} active{% else %}button{% endifequal %}">{{ _('portfolio')|capfirst }}</button></a></li>
+          <li><a href="/services/"><button class="{% ifequal page 'services' %} active{% else %}button{% endifequal %}">{{ _('services')|capfirst }}</button></a></li>
+          <li><a href="/contacts/"><button class="{% ifequal page 'contacts' %} active{% else %}button{% endifequal %}">{{ _('contacts')|capfirst }}</button></a></li>
         </ul>
       </div>
     </div>
@@ -32,7 +35,7 @@
             <div class="header social"></div>
             <div id="activity">
               <div class="loader hidden"></div>
-                <ul id="activity-tweets"></ul>
+              <ul id="activity-tweets"></ul>
             </div>
           </div>
         </li>
