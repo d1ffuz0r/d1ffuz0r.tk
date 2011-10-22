@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-    <title>{{ page|capfirst }}</title>
+    <title>{% block title %}{% endblock %}</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="author" content="d1ffuz0r, d1fffuz0r@gmail.com" />
     <meta name="keywords" content="d1ffuz0r, blog, contacts, portfolio, services, python, django, tornado, jQuery" />
@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/site.js" charset="utf-8"></script>
-  {% block head %}{% endblock %}</head>
+  </head>
   <body>
     <div id="head">
       <div id="menu">
         <ul>
-          <li><a href="/"><button class="{% ifequal page 'home' %}active{% else %}button{% endifequal %}">{{ _('home')|capfirst }}</button></a></li>
-          <li><a href="/about/"><button class="{% ifequal page 'about' %} active{% else %}button{% endifequal %}">{{ _('about me')|capfirst }}</button></a></li>
+          <li><a href="/"><button class="{% if home %}active{% else %}button{% endif %}">{{ _('home')|capfirst }}</button></a></li>
+          <li><a href="/about/"><button class="{% if about  %} active{% else %}button{% endif %}">{{ _('about me')|capfirst }}</button></a></li>
           <li><a href="/blog/"><button class="{% ifequal page 'blog' %} active{% else %}button{% endifequal %}">{{ _('blog')|capfirst }}</button></a></li>
-          <li><a href="/portfolio/"><button class="{% ifequal page 'portfolio' %} active{% else %}button{% endifequal %}">{{ _('portfolio')|capfirst }}</button></a></li>
-          <li><a href="/services/"><button class="{% ifequal page 'services' %} active{% else %}button{% endifequal %}">{{ _('services')|capfirst }}</button></a></li>
-          <li><a href="/contacts/"><button class="{% ifequal page 'contacts' %} active{% else %}button{% endifequal %}">{{ _('contacts')|capfirst }}</button></a></li>
+          <li><a href="/portfolio/"><button class="{% if portfolio %} active{% else %}button{% endif %}">{{ _('portfolio')|capfirst }}</button></a></li>
+          <li><a href="/services/"><button class="{% if services %} active{% else %}button{% endif %}">{{ _('services')|capfirst }}</button></a></li>
+          <li><a href="/contacts/"><button class="{% if contacts %} active{% else %}button{% endif %}">{{ _('contacts')|capfirst }}</button></a></li>
         </ul>
       </div>
     </div>

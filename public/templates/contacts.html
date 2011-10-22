@@ -1,15 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %}{% block title %}Contacts{% endblock %}
 {% block page_title %}Contacts{% endblock %}{% block content %}<div id="contacts">
         <div class="contact jabber">
           <span>Jabber</span>
-          <div class="desc">{{ settings.jabber }}</div>
+          <div class="desc">{{ contacts.jabber }}</div>
         </div>
         <div class="contact icq">
           <span>ICQ</span>
-          <div class="desc">{{ settings.icq }}</div>
+          <div class="desc">{{ contacts.icq }}</div>
         </div>
         <div class="contact email">
           <span>E-mail</span>
-          <div class="desc">{{ settings.email }}</div>
+          <div class="desc">{{ contacts.email }}</div>
         </div>
       </div>{% endblock %}

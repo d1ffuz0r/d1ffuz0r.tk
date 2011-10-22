@@ -112,6 +112,7 @@ class Blog(models.Model):
     class Meta:
         verbose_name = u'Post'
         verbose_name_plural = u'Blog'
+        ordering = ["-id"]
 
     def get_absolute_url(self):
         return "/blog/post/%i/" % self.id

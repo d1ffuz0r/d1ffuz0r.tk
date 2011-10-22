@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.test.client import Client
-from homesite.models import Blog, QuickMessages, About, Portfolio, Services, Settings
+from homesite.models import Blog, QuickMessages, About, Settings
 
 class HomesiteTest(TestCase):
     def setUp(self):
@@ -33,13 +33,13 @@ class HomesiteTest(TestCase):
     #main tests
     def testHome(self):
         request = self.client.get('/')
-        self.assertEqual(request.context['page'], 'home')
+        self.assertContains(request, text="portfolio")
 
     def testAbout(self):
         self.assertEqual(self.about.description, 'test')
 
         request = self.client.get('/about/')
-        self.assertEqual(request.context['page'], 'about')
+        self.assertContains(request, text="about")
         self.assertDictEqual(
             request.context['latest_posts'].values()[0],
                 {'text': u'test', 'id': 1, 'title': u'test'},
@@ -59,11 +59,11 @@ class HomesiteTest(TestCase):
         
     def testPortfolio(self):
         request = self.client.get('/portfolio/')
-        self.assertEqual(request.context['page'], 'portfolio')
+        self.assertContains(request, text="portfolio")
 
     def testServices(self):
         request = self.client.get('/services/')
-        self.assertEqual(request.context['page'], 'services')
+        self.assertContains(request, text="services")
 
     # other tests
     def testMessages(self):

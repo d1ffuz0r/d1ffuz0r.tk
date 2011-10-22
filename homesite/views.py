@@ -1,40 +1,15 @@
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.shortcuts import get_object_or_404
-from models import Services, Portfolio, Settings, About, Blog
+from models import Blog
 from homesite.forms import QuickContactForm
 from django.http import HttpResponse
 from decorators import render_to
 
 _ = lambda x: x
 
-@render_to('home.html')
-def home(request):
-    settings = Settings.objects.get()
-    return {'page': 'home', 'settings': settings}
-
-@render_to('about.html')
-def about(request):
-    about = About.objects.get()
-    return {'page': 'about', 'about': about}
-
-@render_to('portfolio.html')
-def portfolio(request):
-    works = Portfolio.objects.all()
-    return {'page': 'portfolio', 'works': works}
-
-@render_to('services.html')
-def services(request):
-    services = Services.objects.all()
-    return {'page': 'services', 'services': services}
-
-@render_to('contacts.html')
-def contacts(request):
-    settings = Settings.objects.get()
-    return {'page': 'contacts', 'settings': settings}
-
 @render_to('blog.html')
 def blog_list(request):
-    posts_list = Blog.objects.order_by('-id').all()
+    posts_list = Blog.objects.all()
     paginator = Paginator(posts_list,5)
     try:
         page = int(request.GET.get('page', '1'))
