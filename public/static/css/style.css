@@ -1,6 +1,12 @@
 @font-face {
     font-family: BebasNeue;
-    src: url('BebasNeue.otf');
+    src: url('fonts/bebasneue-webfont.eot');
+    src: url('fonts/bebasneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/bebasneue-webfont.woff') format('woff'),
+         url('fonts/bebasneue-webfont.ttf') format('truetype'),
+         url('fonts/bebasneue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
@@ -9,7 +15,7 @@ body {
     padding: 0;
     margin: 0 auto;
     background: #E6E6E6;
-    font-family: Helvetica;
+    font-family: Arial, sans-serif;
 }
 
 #head {
@@ -20,19 +26,25 @@ body {
 }
 
 #content {
-    width: 100%;
-    min-height: 516px;
-    float: left;
     background: #E6E6E6 url('../images/bg.png');
+    float: left;
+    min-height: 516px;
+    padding-bottom: 50px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
 }
 
 /* footer */
 #footer {
+    position: relative;
+    z-index: 10;
     width: 100%;
     height: 410px;
-    padding-top: 125px;
+    padding-top: 100px;
     float: left;
-    background: #566579 url('../images/footer_top_bg.png') repeat-x;
+    margin-top: -55px;
+    background: url('../images/footer_top_bg.png') repeat-x;
 }
 
 #footer ul {
@@ -81,7 +93,6 @@ body {
 #activity, #latest-post {
     float: left;
     width: 217px;
-    height: 253px;
     overflow: hidden;
 }
 
@@ -160,7 +171,7 @@ body {
 }
 
 #quick-form textarea {
-    font-family: Helvetica;
+    font-family: Arial;
     width: 200px;
     height: 85px;
     padding: 10px;
@@ -299,7 +310,7 @@ body {
     background: url('../images/home-links.png') no-repeat -235px 0px;
 }
 
-#home-links ul li.services {
+#home-links ul li.skills {
     background: url('../images/home-links.png') no-repeat -471px 0px;
 }
 
@@ -428,14 +439,14 @@ body {
 #pathbar ul li a {
     color: #525F72;
     text-decoration: none;
-    font: 14px Helvetica;
+    font: 14px Arial;
     font-weight: bold;
     text-shadow: #fff 0px 1px 1px;
 }
 
 .title {
     width: 915px;
-    font: 30px Helvetica;
+    font: 30px Arial;
     color: #515966;
     text-shadow: #ffffff 0px 1px 1px;
     margin: 0 auto;
@@ -444,22 +455,22 @@ body {
     text-align: left;
 }
 
-#services {
+#skills {
     width: 915px;
     margin: 0 auto;
     padding-bottom: 11px;
 }
 
-.services-items {
+.skills-items {
 }
 
-.services-items ul {
+.skills-items ul {
     list-style: none;
     margin: 0px;
     padding: 0px;
 }
 
-.services-items ul li.service-item {
+.skills-items ul li.skill {
     width: 903px;
     height: 101px;
     padding: 10px;
@@ -467,16 +478,16 @@ body {
     margin: 0px 0px 50px 0px;
 }
 
-.services-items ul li.service-item .service-item-image {
+.skills-items ul li.skill .skill-item-image {
     width: 150px;
     height: 100%;
     float: left;
 }
 
-.services-items ul li.service-item .service-item-desc {
+.skills-items ul li.skill .skill-item-desc {
     width: 752px;
     float: left;
-    font: 18px Helvetica;
+    font: 18px Arial;
     color: #515966;
 }
 
@@ -488,7 +499,7 @@ body {
 #about .about-left {
     width: 535px;
     min-height: 300px;
-    font: 18px Helvetica;
+    font: 18px Arial;
     color: #515966;
     float: left;
 }
@@ -530,14 +541,14 @@ body {
 #portfolio ul li.portfolio-item .left-col h1 {
     width: 520px;
     margin: 0px;
-    font: 30px Helvetica;
+    font: 30px Arial;
     color: #515966;
     text-shadow: #fff 0px 1px 1px;
 }
 
 #portfolio ul li.portfolio-item .left-col span {
     margin: 0px;
-    font: 14px Helvetica;
+    font: 14px Arial;
     color: #515966;
     text-shadow: #fff 0px 1px 1px;
 }
@@ -546,12 +557,12 @@ body {
 #portfolio ul li.portfolio-item .left-col .type {
     width: 520px;
     margin-top: 13px;
-    font: 18px Helvetica;
+    font: 18px Arial;
     color: #515966;
 }
 
 #portfolio ul li.portfolio-item .left-col a.more {
-    font: 14px Helvetica;
+    font: 14px Arial;
     color: #515966;
     font-style: italic;
 }
@@ -565,7 +576,7 @@ body {
 #contacts {
     width: 915px;
     margin: 0 auto;
-    font: 18px Helvetica;
+    font: 18px Arial;
     color: #515966;
     padding-top: 50px;
 }
@@ -639,11 +650,11 @@ body {
 #post {
     width: 915px;
     margin: 0 auto;
-    font: 18px Helvetica;
+    font: 18px Arial;
     color: #515966;
 }
 #post a{
-    font: 18px Helvetica;
+    font: 18px Arial;
     color: #515966;
 }
 
@@ -656,7 +667,7 @@ body {
     width: 100%;
     float: left;
     margin-bottom: 30px;
-    font-family: Helvetica;
+    font-family: Arial;
 }
 
 .blog-post h1 {
@@ -676,10 +687,10 @@ body {
     width: 100%;
     color: #515966;
     text-align: left;
-    font: 18px Helvetica;
+    font: 18px Arial;
 }
 .blog-post span a{
-    font: 18px Helvetica;
+    font: 18px Arial;
     color: #515966;
 }
 
@@ -698,7 +709,7 @@ body {
 
 .pagination .step-links,
 .pagination .step-links a {
-    font-family: Helvetica ,Arial,sans-serif;
+    font-family: Arial ,Arial,sans-serif;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 12px;

@@ -20,9 +20,9 @@ urlpatterns = patterns('',
                                          context_object_name="portfolio",
                                          template_name="portfolio.html")),
 
-    url(r'^services/', ListView.as_view(queryset=Services.objects.all(),
-                                        context_object_name="services",
-                                        template_name="services.html")),
+    url(r'^skills/', ListView.as_view(queryset=Services.objects.all(),
+                                        context_object_name="skills",
+                                        template_name="skills.html")),
     
     url(r'^contacts/',  ListView.as_view(queryset=Settings.objects.all()[0],
                                          context_object_name="contacts",

@@ -1,5 +1,7 @@
-{% extends 'base.html' %}{% block title %}Portfolio{% endblock %}
-{% block page_title %}Portfolio{% endblock %}{% block content %}<div id="portfolio">
+{% extends 'base.html' %}
+{% block title %}Portfolio{% endblock %}
+{% block page_title %}Portfolio{% endblock %}
+{% block content %}<div id="portfolio">
         {% if works %}{% for work in works %}<ul>
           <li class="portfolio-item">
             <div class="left-col">
@@ -7,7 +9,7 @@
               <h2>{{ work.description }}</h2>
               <a class="more" target="_blank" href="{{ work.link }}">Link</a>
               <div class="type">
-                <b>{{ _('type work')|capfirst }}:</b> {{ work.type }}
+                <b>Type work:</b> {{ work.type }}
               </div>
             </div>
             <div class="right-col">

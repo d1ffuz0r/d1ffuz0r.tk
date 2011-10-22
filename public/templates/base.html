@@ -15,12 +15,12 @@
     <div id="head">
       <div id="menu">
         <ul>
-          <li><a href="/"><button class="{% if home %}active{% else %}button{% endif %}">{{ _('home')|capfirst }}</button></a></li>
-          <li><a href="/about/"><button class="{% if about  %} active{% else %}button{% endif %}">{{ _('about me')|capfirst }}</button></a></li>
-          <li><a href="/blog/"><button class="{% ifequal page 'blog' %} active{% else %}button{% endifequal %}">{{ _('blog')|capfirst }}</button></a></li>
-          <li><a href="/portfolio/"><button class="{% if portfolio %} active{% else %}button{% endif %}">{{ _('portfolio')|capfirst }}</button></a></li>
-          <li><a href="/services/"><button class="{% if services %} active{% else %}button{% endif %}">{{ _('services')|capfirst }}</button></a></li>
-          <li><a href="/contacts/"><button class="{% if contacts %} active{% else %}button{% endif %}">{{ _('contacts')|capfirst }}</button></a></li>
+          <li><a href="/"><button class="{% if home %}active{% else %}button{% endif %}">Home</button></a></li>
+          <li><a href="/about/"><button class="{% if about  %} active{% else %}button{% endif %}">About me</button></a></li>
+          <li><a href="/blog/"><button class="{% ifequal page 'blog' %} active{% else %}button{% endifequal %}">Blog</button></a></li>
+          <li><a href="/portfolio/"><button class="{% if portfolio %} active{% else %}button{% endif %}">Portfolio</button></a></li>
+          <li><a href="/skills/"><button class="{% if skills %} active{% else %}button{% endif %}">Skills</button></a></li>
+          <li><a href="/contacts/"><button class="{% if contacts %} active{% else %}button{% endif %}">Contacts</button></a></li>
         </ul>
       </div>
     </div>
@@ -29,42 +29,52 @@
       {% block content %}{% endblock %}
     </div>
     <div id="footer">{% load footer_tags %}
-      <ul>
-        <li>
-          <div class="block">
-            <div class="header social"></div>
-            <div id="activity">
-              <div class="loader hidden"></div>
-              <ul id="activity-tweets"></ul>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="block">
-            <div class="header contact"></div>
-            <div id="quick-form">
-              <form id="quick-message">{% csrf_token %}
-                {% quick_form %}
-                <p><button id="quick-submit" onclick="return false;">{{ _('send')|capfirst }}</button></p>
-              </form>
-            </div>
-          </div>
-        </li>
-        <li class="last">
-          <div class="block">
-            <div class="header find_us"></div>
-              <div id="latest-post">
-                <ul>{% latest_posts %}
-                  {% for post in latest_posts %}<li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
-                  {% endfor %}
+      <div style="background:  #566579;">
+        <ul>
+          <li>
+            <div class="block">
+              <div class="header social"></div>
+              <div id="activity">
+                <div class="loader hidden"></div>
+                <ul id="activity-tweets"></ul>
+              </div>
+                <div id="social_link">
+                <ul>{% social %}
+                  <li><a href="{{ social.facebook }}" target="_blank"><img src="{{ STATIC_URL }}images/social/facebook.png" alt=""></a></li>
+                  <li><a href="{{ social.twitter }}" target="_blank"><img src="{{ STATIC_URL }}images/social/twitter.png" alt=""></a></li>
+                  <li><a href="{{ social.github }}" target="_blank"><img src="{{ STATIC_URL }}images/social/github.png" alt=""></a></li>
                 </ul>
               </div>
-          </div>
-        </li>
-      </ul>
-      <div class="copyright">
-        <div class="by-django"><img src="{{ STATIC_URL }}images/django-logo.gif" alt=""></div>
-        <div class="rss"><a href="/blog/rss/" title="RSS"><img src="{{ STATIC_URL }}images/rss_logo.png" alt=""></a></div>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <div class="header contact"></div>
+              <div id="quick-form">
+                <form id="quick-message">
+                  {% csrf_token %}
+                  {% quick_form %}
+                  <p><button id="quick-submit" onclick="return false;">Send</button></p>
+                </form>
+              </div>
+            </div>
+          </li>
+          <li class="last">
+            <div class="block">
+              <div class="header find_us"></div>
+                <div id="latest-post">
+                  <ul>{% latest_posts %}
+                    {% for post in latest_posts %}<li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+            </div>
+          </li>
+        </ul>
+        <div class="copyright">
+          <div class="by-django"><img src="{{ STATIC_URL }}images/django-logo.gif" alt=""></div>
+          <div class="rss"><a href="/blog/rss/"><img src="{{ STATIC_URL }}images/rss_logo.png" alt=""></a></div>
+        </div>
       </div>
     </div>
   </body>

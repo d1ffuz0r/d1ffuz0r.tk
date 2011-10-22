@@ -1,10 +1,12 @@
-{% extends 'base.html' %}{% block title %}Home{% endblock %}{% block content %}<div id="home">
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}<div id="home">
         <div id="home-links">
           <ul>
-            <li class="about"><a href="/about/">{{ _('about me') }}</a></li>
-            <li class="portfolio"><a href="/portfolio/">{{ _('portfolio') }}</a></li>
-            <li class="services"><a href="/services/">{{ _('services') }}</a></li>
-            <li class="contact"><a href="/contacts/">{{ _('contacts') }}</a></li>
+            <li class="about"><a href="/about/">About me</a></li>
+            <li class="portfolio"><a href="/portfolio/">Portfolio</a></li>
+            <li class="skills"><a href="/skills/">Skills</a></li>
+            <li class="contact"><a href="/contacts/">Contacts</a></li>
           </ul>
         </div>
       </div>{% endblock %}

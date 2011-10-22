@@ -1,6 +1,6 @@
 from django import template
 from homesite.forms import QuickContactForm
-from homesite.models import Blog
+from homesite.models import Blog, Settings
 
 register = template.Library()
 
@@ -13,6 +13,12 @@ def quick_form():
     return QuickContactForm().as_p()
 
 @register.simple_tag(takes_context=True)
+def social(context):
+    settings = Settings.objects.all()[0]
+    context["social"] = settings
+    return u""
+
+@register.simple_tag(takes_context=True)
 def latest_posts(context):
     '''
     latest posts in blog
@@ -21,6 +27,6 @@ def latest_posts(context):
                  ...
              {% endfor %}
     '''
-    posts = Blog.objects.order_by('-id')[:4]
-    context['latest_posts'] = posts
-    return u''
+    posts = Blog.objects.all()[:4]
+    context["latest_posts"] = posts
+    return u""

@@ -1,4 +1,6 @@
-{% extends 'base.html' %}{% block title %}Blog - {{ post.title|capfirst }}{% endblock %}
-{% block page_title %}{{ post.title|capfirst }}{% endblock %}{% block content %}<div id="post">
+{% extends 'base.html' %}
+{% block title %}Blog - {{ post.title|capfirst }}{% endblock %}
+{% block page_title %}{{ post.title|capfirst }}{% endblock %}
+{% block content %}<div id="post">
         {{ post.text|safe|linebreaksbr }}
       </div>{% endblock %}

@@ -3,6 +3,12 @@
  */
 $(document).ready(function(){
     /**
+     * check on ie
+     */
+    if ($.browser.msie) {
+        alert("Internet Explorer doesn't support");
+    }
+    /**
      * send message from quick form
      */
     $('#quick-submit').live('click',function(){
