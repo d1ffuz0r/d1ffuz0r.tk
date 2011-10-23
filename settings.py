@@ -24,6 +24,10 @@ LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
+#south
+SOUTH_TESTS_MIGRATE = False
+SKIP_SOUTH_TESTS=True
+
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
 USE_I18N = False
@@ -95,6 +99,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     #'django.contrib.comments',
     'src.homesite',
+    'south',
 )# 'django.contrib.admindocs',
 
 LOGGING = {
