@@ -13,11 +13,7 @@ class HomesiteTest(TestCase):
                                                     message="test_message"
         )
         self.about = About.objects.create(description="test")
-        self.settings = Settings.objects.create(home_portfolio="test",
-                                                home_services="test",
-                                                home_about="test",
-                                                home_contacts="test",
-                                                facebook="http://test.com",
+        self.settings = Settings.objects.create(facebook="http://test.com",
                                                 twitter="http://test.com",
                                                 github="http://test.com",
                                                 jabber="test@dsfdsf.com",
@@ -68,9 +64,6 @@ class HomesiteTest(TestCase):
         self.assertEqual(self.message.name, "test_name")
         self.assertEqual(self.message.email, "email")
         self.assertEqual(self.message.message, "test_message")
-    
-    def testSettings(self):
-        self.assertEqual(self.settings.home_portfolio, "test")
 
     def testSendMessages(self):
         request = self.client.post(
