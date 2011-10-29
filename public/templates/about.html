@@ -5,7 +5,7 @@
         <div class="about-left">
           {{ about.description }}
         </div>
-        <div class="about-right">
+        {% comment %}<div class="about-right">
           <a id="my-cv" href="{{ MEDIA_URL }}{{ settings.cv }}"><button>Download CV</button></a>
         </div>
-    </div>{% endblock %}
+        {% endcomment %}</div>{% endblock %}
