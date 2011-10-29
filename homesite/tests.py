@@ -51,10 +51,6 @@ class HomesiteTest(TestCase):
             request.context["posts"].object_list.values()[0],
                 {"text": u"test", "id": 1, "title": u"test"}
         )
-        
-    def testPortfolio(self):
-        request = self.client.get("/portfolio/")
-        self.assertContains(request, text="portfolio")
 
     def testSkills(self):
         request = self.client.get("/skills/")

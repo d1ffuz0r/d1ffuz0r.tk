@@ -205,7 +205,7 @@ body {
 
 /* menu */
 #menu {
-    width: 600px;
+    width: 500px;
     height: 35px;
     float: right;
     margin: 44px 54px 0 0;
@@ -512,64 +512,6 @@ body {
     float: left;
     width: 349px;
     min-height: 300px;
-    text-align: right;
-}
-
-#portfolio {
-    width: 915px;
-    margin: 0 auto;
-    padding-bottom: 30px;
-}
-
-#portfolio ul {
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-}
-
-#portfolio ul li.portfolio-item {
-    width: 915px;
-    height: 287px;
-    border-bottom: 1px solid #000;
-    margin-top: 70px;
-}
-
-#portfolio ul li.portfolio-item .left-col {
-    float: left;
-}
-
-#portfolio ul li.portfolio-item .left-col h1 {
-    width: 520px;
-    margin: 0px;
-    font: 30px Arial;
-    color: #515966;
-    text-shadow: #fff 0px 1px 1px;
-}
-
-#portfolio ul li.portfolio-item .left-col span {
-    margin: 0px;
-    font: 14px Arial;
-    color: #515966;
-    text-shadow: #fff 0px 1px 1px;
-}
-
-#portfolio ul li.portfolio-item .left-col h2,
-#portfolio ul li.portfolio-item .left-col .type {
-    width: 520px;
-    margin-top: 13px;
-    font: 18px Arial;
-    color: #515966;
-}
-
-#portfolio ul li.portfolio-item .left-col a.more {
-    font: 14px Arial;
-    color: #515966;
-    font-style: italic;
-}
-
-#portfolio ul li.portfolio-item .right-col {
-    width: 385px;
-    float: right;
     text-align: right;
 }
 

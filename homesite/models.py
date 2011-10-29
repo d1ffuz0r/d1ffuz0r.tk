@@ -22,27 +22,6 @@ class Services(models.Model):
     def __unicode__(self):
         return self.title
 
-class Portfolio(models.Model):
-    title = models.CharField(max_length=1000, verbose_name=u"Name")
-    description = models.TextField(max_length=1000, verbose_name=u"Description")
-    type = models.ForeignKey(Services, blank=True, verbose_name=u"Type")
-    link = models.URLField(verbose_name=u"Link")
-    image = models.ImageField(upload_to="portfolio", verbose_name=u"Image", blank=True)
-
-    class Meta:
-        verbose_name = u"Portfolio"
-        verbose_name_plural = u"Portfolio"
-
-    def save(self, size=(250, 250)):
-        super(Portfolio, self).save()
-        filename = "%s/%s" % (settings.MEDIA_ROOT, self.image)
-        image = Image.open(filename)
-        image.thumbnail(size, Image.ANTIALIAS)
-        image.save(filename)
-
-    def __unicode__(self):
-        return self.title
-
 class Settings(models.Model):
     facebook = models.CharField(max_length=100, verbose_name=u"Facebook profile")
     twitter = models.CharField(max_length=100, verbose_name=u"Twitter profile")

@@ -1,4 +1,4 @@
-from homesite.models import About, Portfolio, Services, Settings
+from homesite.models import About, Services, Settings
 from django.conf.urls.defaults import patterns, url, include
 from django.views.generic.list import ListView
 from homesite.feed import BlogRss
@@ -15,10 +15,6 @@ urlpatterns = patterns('',
     url(r'^about/', ListView.as_view(queryset=About.objects.all()[0],
                                      context_object_name="about",
                                      template_name="about.html")),
-
-    url(r'^portfolio/', ListView.as_view(queryset=Portfolio.objects.all(),
-                                         context_object_name="portfolio",
-                                         template_name="portfolio.html")),
 
     url(r'^skills/', ListView.as_view(queryset=Services.objects.all(),
                                         context_object_name="skills",
