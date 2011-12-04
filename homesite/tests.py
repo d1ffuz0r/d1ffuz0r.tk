@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.test.client import Client
 from homesite.models import Blog, QuickMessages, About, Settings
 
+
 class HomesiteTest(TestCase):
     def setUp(self):
         self.client = Client()
@@ -22,9 +23,6 @@ class HomesiteTest(TestCase):
                                                 skype="sfsdf",
                                                 cv=""
         )
-
-        #self.service = Services.objects.create(title="test", description="test").save_base(force_insert=False)
-        #self.portfolio = Portfolio.objects.create(title="test", description="desc", type=self.service.id, link="http://fsdf", image="").save()
 
     def testHome(self):
         request = self.client.get("/")
@@ -64,8 +62,9 @@ class HomesiteTest(TestCase):
     def testSendMessages(self):
         request = self.client.post(
             "/ajax/quick-form",
-            {"name":"test","email":"d1ffuz0r@mail.ru","message":"msg"},
-            **{"HTTP_X_REQUESTED_WITH":"XMLHttpRequest"}
+            {"name": "test", "email": "d1ffuz0r@mail.ru", "message": "msg"},
+            **{"HTTP_X_REQUESTED_WITH": "XMLHttpRequest"}
         )
-        self.assertEqual(QuickMessages.objects.filter(message="msg").get().email, "d1ffuz0r@mail.ru")
-        self.assertEqual(request.content,"Success. your message sended")
+        message = QuickMessages.objects.filter(message="msg").get()
+        self.assertEqual(message.email, "d1ffuz0r@mail.ru")
+        self.assertEqual(request.content, "Success. your message sended")

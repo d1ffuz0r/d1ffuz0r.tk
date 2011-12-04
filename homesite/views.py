@@ -5,10 +5,11 @@ from homesite.forms import QuickContactForm
 from django.http import HttpResponse
 from decorators import render_to
 
+
 @render_to("blog.html")
 def blog_list(request):
     posts_list = Blog.objects.all()
-    paginator = Paginator(posts_list,5)
+    paginator = Paginator(posts_list, 5)
     try:
         page = int(request.GET.get("page", "1"))
     except ValueError:
@@ -17,13 +18,15 @@ def blog_list(request):
         posts = paginator.page(page)
     except (EmptyPage, InvalidPage):
         posts = paginator.page(paginator.num_pages)
-        
+
     return {"page": "blog", "posts": posts}
 
+
 @render_to("post.html")
-def blog_post(request,post_id):
-    post = get_object_or_404(Blog, id = post_id)
+def blog_post(request, post_id):
+    post = get_object_or_404(Blog, id=post_id)
     return {"page": "blog", "post": post}
+
 
 def quick_form(request):
     if request.is_ajax():

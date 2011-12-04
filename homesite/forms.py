@@ -1,6 +1,7 @@
 from django import forms
 from models import QuickMessages
 
+
 class QuickContactForm(forms.ModelForm):
     class Meta:
         model = QuickMessages

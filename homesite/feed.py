@@ -1,6 +1,7 @@
 from django.contrib.syndication.views import Feed
 from models import Blog
 
+
 class BlogRss(Feed):
     title_template = "d1ffuz0r blog feed"
     link = "/blog/"

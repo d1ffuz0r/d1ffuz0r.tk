@@ -4,13 +4,14 @@ from homesite.models import Blog, Settings
 
 register = template.Library()
 
+
 @register.simple_tag
 def quick_form():
-    '''
-    quick message form
-    use: {% quick_form %}
-    '''
+    """quick message form
+       Example: {% quick_form %}
+    """
     return QuickContactForm().as_p()
+
 
 @register.simple_tag(takes_context=True)
 def social(context):
@@ -18,15 +19,15 @@ def social(context):
     context["social"] = settings
     return u""
 
+
 @register.simple_tag(takes_context=True)
 def latest_posts(context):
-    '''
-    latest posts in blog
-    use: {{ latest_posts }}
-    example: {% for post in latest_posts %}
+    """latest posts in blog
+       example: {{ latest_posts }}
+                {% for post in latest_posts %}
                  ...
-             {% endfor %}
-    '''
+                {% endfor %}
+    """
     posts = Blog.objects.all()[:4]
     context["latest_posts"] = posts
     return u""
