@@ -43,6 +43,7 @@ class Settings(models.Model):
     skype = models.CharField(max_length=100,
         verbose_name=u"Skype")
     cv = models.FileField(upload_to=".", verbose_name=u"CV", blank=True)
+    linkedin = models.CharField(max_length=100, verbose_name=u"LinkedIn")
 
     class Meta:
         verbose_name = u"Settings"

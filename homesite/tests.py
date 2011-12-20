@@ -21,8 +21,12 @@ class HomesiteTest(TestCase):
                                                 icq="12123",
                                                 email="test@dsfdsf.com",
                                                 skype="sfsdf",
-                                                cv=""
+                                                cv="",
+                                                linkedin="linked.in"
         )
+
+    def test_linkedin(self):
+        self.assertEqual(self.settings.linkedin, "linked.in")
 
     def testHome(self):
         request = self.client.get("/")
