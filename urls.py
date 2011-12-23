@@ -1,6 +1,8 @@
 from homesite.models import About, Services, Settings
 from django.conf.urls.defaults import patterns, url, include
+from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
+
 from homesite.feed import BlogRss
 from django.contrib import admin
 import settings
@@ -8,9 +10,7 @@ import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', ListView.as_view(queryset=Settings.objects.all(),
-                                context_object_name="home",
-                                template_name="home.html")),
+    url(r'^$', TemplateView.as_view(template_name="home.html")),
 
     url(r'^about/', ListView.as_view(queryset=About.objects.all(),
                                      context_object_name="about",
@@ -20,9 +20,7 @@ urlpatterns = patterns('',
                                         context_object_name="skills",
                                         template_name="skills.html")),
 
-    url(r'^contacts/',  ListView.as_view(queryset=Settings.objects.all(),
-                                         context_object_name="contacts",
-                                         template_name="contacts.html")),
+    url(r'^contacts/',  TemplateView.as_view(template_name="contacts.html")),
     url(r'^blog/rss/$', BlogRss()),
     url(r'^blog/post/(\d+)', 'homesite.views.blog_post'),
     url(r'^blog/', 'homesite.views.blog_list'),

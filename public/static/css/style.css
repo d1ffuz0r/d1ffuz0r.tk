@@ -9,6 +9,10 @@
     font-style: normal;
 }
 
+img {
+    border: none;
+}
+
 body {
     width: 100%;
     margin: 0;

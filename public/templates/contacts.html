@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
+{% load footer_tags %}
 {% block title %}Contacts{% endblock %}
 {% block page_title %}Contacts{% endblock %}
-{% block content %}<div id="contacts">
+{% block content %}{% social %}<div id="contacts">
         <div class="contact jabber">
           <span>Jabber</span>
-          <div class="desc">{{ contacts.jabber }}</div>
+          <div class="desc">{{ social.jabber }}</div>
         </div>
         <div class="contact icq">
           <span>ICQ</span>
-          <div class="desc">{{ contacts.icq }}</div>
+          <div class="desc">{{ social.icq }}</div>
         </div>
         <div class="contact email">
           <span>E-mail</span>
-          <div class="desc">{{ contacts.email }}</div>
+          <div class="desc">{{ social.email }}</div>
         </div>
       </div>{% endblock %}
