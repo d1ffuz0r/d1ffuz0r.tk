@@ -603,6 +603,12 @@ body {
     font: 18px Arial;
     color: #515966;
 }
+#disqus_thread a {
+    font-size: 12px;
+}
+#post hr.split {
+    margin: 100px 0 50px;
+}
 
 #blog .posts {
     list-style: none;
