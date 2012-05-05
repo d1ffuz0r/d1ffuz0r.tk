@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+import os
+
+abs_path = lambda path: os.path.join(os.path.dirname(__file__), path)
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -37,7 +41,7 @@ USE_I18N = False
 USE_L10N = False
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-MEDIA_ROOT = 'D:/projects/homesite/src/public/site_media/'
+MEDIA_ROOT = abs_path(os.path.join('public', 'site_media'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a trailing slash.
 MEDIA_URL = '/media/'
@@ -56,7 +60,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin_media/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    'D:/projects/homesite/src/public/static/',
+    abs_path(os.path.join('public', 'static')),
 )
 # List of finder classes that know how to find static files in various locations.
 STATICFILES_FINDERS = (
@@ -81,12 +85,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.contrib.csrf.middleware.CsrfResponseMiddleware',
+    #'django.contrib.csrf.middleware.CsrfResponseMiddleware',
 )
 
 ROOT_URLCONF = 'src.urls'
 
-TEMPLATE_DIRS = ('D:/projects/homesite/src/public/templates/',) #devel
+TEMPLATE_DIRS = abs_path(os.path.join('public', 'templates')) #devel
 #TEMPLATE_DIRS = ('./public/templates/',) #host
 
 INSTALLED_APPS = (

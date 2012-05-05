@@ -16,7 +16,7 @@
       <div id="menu">
         <ul>
           <li><a href="/"><button class="{% if home %}active{% else %}button{% endif %}">Home</button></a></li>
-          <li><a href="/about/"><button class="{% if about  %} active{% else %}button{% endif %}">About me</button></a></li>
+          <li><a href="/about/"><button class="{% if about %}active{% else %}button{% endif %}">About me</button></a></li>
           <li><a href="/blog/"><button class="{% ifequal page 'blog' %} active{% else %}button{% endifequal %}">Blog</button></a></li>
           <li><a href="/skills/"><button class="{% if skills %} active{% else %}button{% endif %}">Skills</button></a></li>
           <li><a href="/contacts/"><button class="{% if contacts %} active{% else %}button{% endif %}">Contacts</button></a></li>

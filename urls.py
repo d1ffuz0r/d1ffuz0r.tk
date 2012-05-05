@@ -10,17 +10,21 @@ import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', TemplateView.as_view(template_name="home.html")),
+    url(r'^$', ListView.as_view(model=Settings,
+                                context_object_name="home",
+                                template_name="home.html")),
 
     url(r'^about/', ListView.as_view(queryset=About.objects.all(),
                                      context_object_name="about",
                                      template_name="about.html")),
 
     url(r'^skills/', ListView.as_view(queryset=Services.objects.all(),
-                                        context_object_name="skills",
-                                        template_name="skills.html")),
+                                      context_object_name="skills",
+                                      template_name="skills.html")),
 
-    url(r'^contacts/',  TemplateView.as_view(template_name="contacts.html")),
+    url(r'^contacts/',  ListView.as_view(model=Settings,
+                                         context_object_name='contacts',
+                                         template_name="contacts.html")),
     url(r'^blog/rss/$', BlogRss()),
     url(r'^blog/post/(\d+)', 'homesite.views.blog_post'),
     url(r'^blog/', 'homesite.views.blog_list'),
