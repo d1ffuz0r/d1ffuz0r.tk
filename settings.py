@@ -86,9 +86,14 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'src.homesite',
     'disquis',
+    'django_masha',
     'south',
 )
 
+MASHA_CFG = {
+    'selectable': 'post'
+}
+MASHA_JQEURY = True
 
 DISQUS_API_KEY = ''
 DISQUS_WEBSITE_SHORTNAME = 'd1ffuz0rhomesite'
