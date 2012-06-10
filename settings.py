@@ -84,10 +84,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.sites',
-    'src.homesite',
+    'homesite',
     'disquis',
     'django_masha',
-    'south',
 )
 
 MASHA_CFG = {

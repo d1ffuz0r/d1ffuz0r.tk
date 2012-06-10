@@ -4,6 +4,7 @@ from homesite.models import Blog, QuickMessages, About, Settings
 
 
 class HomesiteTest(TestCase):
+
     def setUp(self):
         self.client = Client()
         self.post = Blog.objects.create(title="test",
@@ -28,11 +29,11 @@ class HomesiteTest(TestCase):
     def test_linkedin(self):
         self.assertEqual(self.settings.linkedin, "linked.in")
 
-    def testHome(self):
+    def test_home(self):
         request = self.client.get("/")
         self.assertContains(request, text="portfolio")
 
-    def testAbout(self):
+    def test_about(self):
         self.assertEqual(self.about.description, "test")
 
         request = self.client.get("/about/")
@@ -41,9 +42,8 @@ class HomesiteTest(TestCase):
             request.context["latest_posts"].values()[0],
                 {"text": u"test", "id": 1, "title": u"test"},
         )
-        self.assertEqual(request.context["about"].description, "test")
 
-    def testBlog(self):
+    def test_blog(self):
         self.assertEqual(self.post.title, "test")
         self.assertEqual(self.post.text, "test")
 
@@ -54,16 +54,16 @@ class HomesiteTest(TestCase):
                 {"text": u"test", "id": 1, "title": u"test"}
         )
 
-    def testSkills(self):
+    def test_skills(self):
         request = self.client.get("/skills/")
         self.assertContains(request, text="skills")
 
-    def testMessages(self):
+    def test_messages(self):
         self.assertEqual(self.message.name, "test_name")
         self.assertEqual(self.message.email, "email")
         self.assertEqual(self.message.message, "test_message")
 
-    def testSendMessages(self):
+    def test_send_message_true(self):
         request = self.client.post(
             "/ajax/quick-form",
             {"name": "test", "email": "d1ffuz0r@mail.ru", "message": "msg"},
