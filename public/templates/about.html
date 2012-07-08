@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}About me{% endblock %}
-{% block page_title %}About me{% endblock %}
+{% block page_title %}Hi, There.{% endblock %}
 {% block content %}<div id="about">
         <div class="about-left">
-          {{ about.description }}
+          {{ about.0.description|safe }}
+          <p>Follow my on GitHub as <a href="{{ settings.github }}">d1ffuz0r</a></p>
         </div>
         {% comment %}<div class="about-right">
           <a id="my-cv" href="{{ MEDIA_URL }}{{ settings.cv }}"><button>Download CV</button></a>

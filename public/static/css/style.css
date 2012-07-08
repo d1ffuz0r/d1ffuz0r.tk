@@ -501,7 +501,6 @@ body {
 }
 
 #about .about-left {
-    width: 535px;
     min-height: 300px;
     font: 18px Arial;
     color: #515966;
@@ -537,7 +536,7 @@ body {
     background: url('../images/contacts.png') no-repeat;
 }
 
-#contacts .icq {
+#contacts .skype {
     background-position: -235px 0px;
 }
 
