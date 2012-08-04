@@ -1,0 +1,85 @@
+{% load masha %}
+!!! 5
+%html
+  %head
+    %title {% block title %}{% endblock %}
+    %meta{'http-equiv': 'Content-type', 'content': 'text/html', 'charset': 'utf-8'}
+    %meta{'name': 'author', 'content': 'Roman Gladkov, d1fffuz0r@gmail.com'}
+    %meta{'name': 'keywords', 'content': 'd1ffuz0r, blog, contacts, portfolio, python, django, tornado, jQuery, Erlang'}
+    %meta{'name': 'description', 'content': 'd1ffuz0r personal site, blog, portfolio'}
+    %link{'rel': 'stylesheet', 'href': '{{ STATIC_URL }}css/style.css', 'type': 'text/css', 'charset': 'utf-8', 'media': 'screen'}
+    %script{'type': 'text/javascript', 'src': '{{ STATIC_URL }}js/jquery-1.6.2.min.js', 'charset': 'utf-8'}
+    %script{'type': 'text/javascript', 'src': '{{ STATIC_URL }}js/site.js', 'charset': 'utf-8'}
+    {% masha %}
+  %body
+    #head
+      #menu
+        %ul
+          %li
+            %a{'href': '/'}
+              %button{'class': '{% if home %}active{% else %}button{% endif %}'} Home
+          %li
+            %a{'href': '/about/'}
+              %button{'class': '{% if about %}active{% else %}button{% endif %}'} About me
+          %li
+            %a{'href': '/blog/'}
+              %button{'class': '{% ifequal page "blog" %} active{% else %}button{% endifequal %}'} Blog
+          %li
+            %a{'href': '/skills/'}
+              %button{'class': '{% if skills %} active{% else %}button{% endif %}'} Skills
+          %li
+            %a{'href': '/contacts/'}
+              %button{'class': '{% if contacts %} active{% else %}button{% endif %}'} Contacts
+    #content
+      .title {% block page_title %}{% endblock %}
+      {% block content %}{% endblock %}
+    #footer
+      {% load footer_tags %}
+      %div{'style': 'background:  #566579;'}
+        %ul
+          %li
+            .block
+              .header.social
+              #activity
+                .loader.hidden
+                %ul#activity-tweets
+              #social_link
+                %ul
+                  {% social %}
+                  %li
+                    %a{'href': '{{ social.facebook }}', 'target': '_blank'}
+                      %img{'src': '{{ STATIC_URL }}images/social/facebook.png'}
+                  %li
+                    %a{'href': '{{ social.twitter }}', 'target': '_blank'}
+                      %img{'src': '{{ STATIC_URL }}images/social/twitter.png'}
+                  %li
+                    %a{'href': '{{ social.github }}', 'target': '_blank'}
+                      %img{'src': '{{ STATIC_URL }}images/social/github.png'}
+                  %li
+                    %a{'href': '{{ social.linkedin }}', 'target': '_blank'}
+                      %img{'src': '{{ STATIC_URL }}images/social/linkedin.png'}
+          %li
+            .block
+              .header.contact
+              #quick-form
+                %form#quick-message
+                  {% csrf_token %}
+                  {% quick_form %}
+                  %p
+                    %button#quick-submit{'onclick': 'return false;'} Send
+          %li.last
+            .block
+              .header.find_us
+              #latest-post
+                %ul
+                  {% latest_posts %}
+                  {% for post in latest_posts %}
+                  %li
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                  {% endfor %}
+        .copyright
+          .by-django
+            %img{'src': '{{ STATIC_URL }}images/django-logo.gif'}
+          .rss
+            %a{'href': '/blog/rss/'}
+              %img{'src': '{{ STATIC_URL }}images/rss_logo.png'}

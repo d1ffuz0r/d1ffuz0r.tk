@@ -4,11 +4,11 @@ import os
 abs_path = lambda path: os.path.join(os.path.dirname(__file__), path)
 
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('d1ffuz0r', 'd1fffuz0r@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -37,18 +37,15 @@ USE_L10N = USE_I18N = False
 
 MEDIA_ROOT = abs_path(os.path.join('public', 'site_media'))
 MEDIA_URL = '/media/'
-
-#for DEBUG = False
-STATIC_ROOT = ''
-
-# URL prefix for static files.
-STATIC_URL = '/static/'
-
 ADMIN_MEDIA_PREFIX = '/static/admin_media/'
 
+STATIC_ROOT = abs_path('static') if not DEBUG else ''
+
 STATICFILES_DIRS = (
-    abs_path(os.path.join('public', 'static')),
+    abs_path('static'),
 )
+STATIC_URL = '/static/'
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -58,9 +55,11 @@ STATICFILES_FINDERS = (
 SECRET_KEY = 'c6pbe#!2ej8+^^bik^=m6bg2i^_*96_vtc)w5en$7wd=&6%zj4'
 
 TEMPLATE_LOADERS = (
+    'homesite.template_loaders.DjamlFilesystemLoader',
+    'homesite.template_loaders.DjamlAppDirectoriesLoader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -72,9 +71,7 @@ MIDDLEWARE_CLASSES = (
     #'django.contrib.csrf.middleware.CsrfResponseMiddleware',
 )
 
-ROOT_URLCONF = 'src.urls'
-
-TEMPLATE_DIRS = abs_path(os.path.join('public', 'templates'))
+ROOT_URLCONF = 'urls'
 
 INSTALLED_APPS = (
     'django.contrib.auth',

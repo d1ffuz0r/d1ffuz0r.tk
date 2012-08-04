@@ -5,9 +5,7 @@ $(document).ready(function(){
     /**
      * check on ie
      */
-    if ($.browser.msie) {
-        alert("Internet Explorer doesn't support");
-    }
+    if ($.browser.msie) alert("Internet Explorer doesn't support");
     /**
      * send message from quick form
      */
@@ -21,9 +19,7 @@ $(document).ready(function(){
                 'email'               : $('[name="email"]').val(),
                 'message'             : $('[name="message"]').val()
             }),
-            success: function(msg){
-                alert(msg);
-            }
+            success: function(msg){ alert(msg); }
         });
     });
     /**

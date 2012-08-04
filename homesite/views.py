@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from decorators import render_to
 
 
-@render_to("blog.html")
+@render_to("blog.haml")
 def blog_list(request):
     posts_list = Blog.objects.all()
     paginator = Paginator(posts_list, 5)
@@ -23,7 +23,7 @@ def blog_list(request):
     return {"page": "blog", "posts": posts}
 
 
-@render_to("post.html")
+@render_to("post.haml")
 def blog_post(request, post_id):
     post = get_object_or_404(Blog, id=post_id)
     return {"page": "blog", "post": post}
@@ -40,3 +40,13 @@ def quick_form(request):
     else:
         message = u"Not data"
     return HttpResponse(message)
+
+
+@render_to('404.haml')
+def error404(request):
+    return {}
+
+
+@render_to('500.haml')
+def error500(request):
+    return {}

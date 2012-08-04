@@ -1,0 +1,15 @@
+{% extends 'base.haml' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+      #home
+        #home-links
+          %ul
+            %li{'class': 'about'}
+              %a{'href': '/about/'} About me
+            %li{'class': 'portfolio'}
+              %a{'href': '/blog/'} Blog
+            %li{'class': 'skills'}
+              %a{'href': '/skills/'} Skills
+            %li{'class': 'contact'}
+              %a{'href': '/contacts/'} Contacts
+{% endblock %}

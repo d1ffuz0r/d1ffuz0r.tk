@@ -1,0 +1,22 @@
+{% extends 'base.haml' %}
+{% load footer_tags %}
+{% block title %}Contacts{% endblock %}
+{% block page_title %}Contacts{% endblock %}
+{% block content %}{% social %}
+      #contacts
+        .contact.jabber
+          %span
+            Jabber
+            .desc
+              {{ social.jabber }}
+        .contact.skype
+          %span
+            Skype
+            .desc
+              {{ social.skype }}
+        .contact.email
+          %span
+            Email
+            .desc
+              {{ social.email }}
+{% endblock %}

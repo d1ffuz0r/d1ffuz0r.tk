@@ -1,0 +1,22 @@
+{% extends 'base.haml' %}
+{% block title %}Blog{% endblock %}
+{% block page_title %}Blog{% endblock %}
+{% block content %}
+      #blog
+        {% if posts %}
+          %ul.posts
+            {% for post in posts.object_list %}
+            %li.blog-post
+              %h1
+                <a class="more" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+              %span
+                {{ post.text|safe|linebreaksbr|truncatewords:10 }}
+              %a.more{'href': '{{ post.get_absolute_url }}'} More
+            {% endfor %}
+          .pagination
+            %span.step-links
+              {% if posts.has_previous %}<a href="?page={{ posts.previous_page_number }}">previous</a>{% endif %}
+              <span class="current">{{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+             {% if posts.has_next %}<a href="?page={{ posts.next_page_number }}">next</a>{% endif %}
+        {% else %}No posts :({% endif %}
+{% endblock %}

@@ -1,34 +1,14 @@
-from homesite.models import About, Services, Settings
-from django.conf.urls.defaults import patterns, url, include
-from django.views.generic.base import TemplateView
-from django.views.generic.list import ListView
-
-from homesite.feed import BlogRss
+from django.conf.urls import patterns, url, include
 from django.contrib import admin
 import settings
 
 admin.autodiscover()
 
+handler404 = 'homesite.views.error404'
+handler500 = 'homesite.views.error500'
+
 urlpatterns = patterns('',
-    url(r'^$', ListView.as_view(model=Settings,
-                                context_object_name="home",
-                                template_name="home.html")),
-
-    url(r'^about/', ListView.as_view(queryset=About.objects.all(),
-                                     context_object_name="about",
-                                     template_name="about.html")),
-
-    url(r'^skills/', ListView.as_view(queryset=Services.objects.all(),
-                                      context_object_name="skills",
-                                      template_name="skills.html")),
-
-    url(r'^contacts/',  ListView.as_view(model=Settings,
-                                         context_object_name='contacts',
-                                         template_name="contacts.html")),
-    url(r'^blog/rss/$', BlogRss()),
-    url(r'^blog/post/(\d+)', 'homesite.views.blog_post'),
-    url(r'^blog/', 'homesite.views.blog_list'),
-    url(r'^ajax/quick-form', 'homesite.views.quick_form'),
+    url(r'', include('homesite.urls')),
     url(r'^media/(?P<path>.*)$',
         'django.views.static.serve',
             {'document_root': settings.MEDIA_ROOT}

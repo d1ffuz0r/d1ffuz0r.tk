@@ -1,10 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'base.haml' %}
 {% load disqus_tags %}
 {% disqus_dev %}
 {% block title %}Blog - {{ post.title|capfirst }}{% endblock %}
 {% block page_title %}{{ post.title|capfirst }}{% endblock %}
-{% block content %}<div id="post">
+{% block content %}
+      #post
         {{ post.text|safe|linebreaksbr }}
-        <hr class='split'>
+        %hr.split
         {% disqus_show_comments %}
-      </div>{% endblock %}
+{% endblock %}
