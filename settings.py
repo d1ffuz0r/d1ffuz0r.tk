@@ -84,6 +84,7 @@ INSTALLED_APPS = (
     'homesite',
     'disquis',
     'django_masha',
+    'gunicorn'
 )
 
 MASHA_CFG = {
