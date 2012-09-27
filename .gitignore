@@ -1,6 +1,9 @@
 .DS_Store
 *.pyc
 .idea
+.venv
 home
 fabfile.py
 dump.json
+static/admin
+gunicorn.pid

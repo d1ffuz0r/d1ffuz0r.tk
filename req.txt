@@ -1,0 +1,9 @@
+Django==1.4.1
+PIL==1.1.7
+Pygments==1.5
+distribute==0.6.28
+djaml==1.0
+elementtree==1.2.7-20070827-preview
+gunicorn==0.14.6
+hamlpy==0.80.4
+wsgiref==0.1.2
