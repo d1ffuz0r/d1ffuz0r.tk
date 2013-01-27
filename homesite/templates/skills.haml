@@ -6,10 +6,10 @@
         .skills-items
           %ul
             {% if skills %}{% for skill in skills %}
-            %li.skill
+            %li.skill{'itemprop': 'skill'}
               .skill-item-image
                 %img{'src': '{{ MEDIA_URL }}{{ skill.image }}', 'height': '100'}
-              .skill-item-desc
+              .skill-item-desc{'itemprop': 'description'}
                 {{ skill.description }}
             {% endfor %}{% else %}No skills :({% endif %}
 {% endblock %}

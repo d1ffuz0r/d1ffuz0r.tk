@@ -4,7 +4,7 @@
 {% block title %}Blog - {{ post.title|capfirst }}{% endblock %}
 {% block page_title %}{{ post.title|capfirst }}{% endblock %}
 {% block content %}
-      #post
+      #post{'itemprop': 'entry'}
         {{ post.text|safe|linebreaksbr }}
         %hr.split
         {% disqus_show_comments %}

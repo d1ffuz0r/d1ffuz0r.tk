@@ -3,6 +3,6 @@
 {% block page_title %}Hi, There.{% endblock %}
 {% block content %}
       #about
-        .about-left
+        .about-left{'itemprop': 'about'}
           {{ about.0.description|safe }}
 {% endblock %}
