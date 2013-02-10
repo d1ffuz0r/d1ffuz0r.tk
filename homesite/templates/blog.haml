@@ -11,7 +11,7 @@
                 <a class='more' itemprop='url' href='{{ post.get_absolute_url }}'>{{ post.title }}</a>
               %span
                 {{ post.text|safe|linebreaksbr|truncatewords:10 }}
-              %a.more{'itemprop'; 'url', 'href': '{{ post.get_absolute_url }}'} More
+              %a.more{'itemprop': 'url', 'href': '{{ post.get_absolute_url }}'} More
             {% endfor %}
           .pagination
             %span.step-links
