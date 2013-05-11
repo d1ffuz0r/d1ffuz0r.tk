@@ -82,7 +82,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.sites',
     'homesite',
-    'disquis',
+    'disqus',
     'django_masha',
     'gunicorn'
 )
