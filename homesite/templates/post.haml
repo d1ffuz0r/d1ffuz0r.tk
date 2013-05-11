@@ -7,5 +7,6 @@
       #post{'itemprop': 'entry'}
         {{ post.text|safe|linebreaksbr }}
         %hr.split
+        {% set_disqus_identifier "blogentry_" post.id %}
         {% disqus_show_comments %}
 {% endblock %}
