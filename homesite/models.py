@@ -1,47 +1,22 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from PIL import Image
-import settings
-
-
-class Services(models.Model):
-    title = models.CharField(max_length=1000,
-        verbose_name=u"Name (for select in Portfolio)")
-    description = models.TextField(max_length=1000,
-        verbose_name=u"Description")
-    image = models.ImageField(upload_to="skills",
-        verbose_name=u"Image", blank=True)
-
-    def save(self, size=(100, 100)):
-        super(Services, self).save()
-        filename = "%s/%s" % (settings.MEDIA_ROOT, self.image)
-        image = Image.open(filename)
-        image.thumbnail(size, Image.ANTIALIAS)
-        image.save(filename)
-
-    class Meta:
-        verbose_name = u"Skill"
-        verbose_name_plural = u"skills"
-
-    def __unicode__(self):
-        return self.title
 
 
 class Settings(models.Model):
     facebook = models.CharField(max_length=100,
-        verbose_name=u"Facebook profile")
+                                verbose_name=u"Facebook profile")
     twitter = models.CharField(max_length=100,
-        verbose_name=u"Twitter profile")
+                               verbose_name=u"Twitter profile")
     github = models.CharField(max_length=100,
-        verbose_name=u"Github profile")
+                              verbose_name=u"Github profile")
     jabber = models.CharField(max_length=100,
-        verbose_name=u"Jabber")
+                              verbose_name=u"Jabber")
     icq = models.CharField(max_length=100,
-        verbose_name=u"ICQ")
+                           verbose_name=u"ICQ")
     email = models.CharField(max_length=100,
-        verbose_name=u"E-mail")
+                             verbose_name=u"E-mail")
     skype = models.CharField(max_length=100,
-        verbose_name=u"Skype")
+                             verbose_name=u"Skype")
     cv = models.FileField(upload_to=".", verbose_name=u"CV", blank=True)
     linkedin = models.CharField(max_length=100, verbose_name=u"LinkedIn")
 
@@ -55,7 +30,7 @@ class Settings(models.Model):
 
 class About(models.Model):
     description = models.TextField(max_length=1000,
-        verbose_name=u"Description")
+                                   verbose_name=u"Description")
 
     class Meta:
         verbose_name = u"About"
@@ -68,8 +43,10 @@ class About(models.Model):
 class QuickMessages(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100,
-        error_messages={"null": "Enter email pls",
-                        "invalid_choice": "Enter correct email"})
+                              error_messages={
+                                  "null": "Enter email pls",
+                                  "invalid_choice": "Enter correct email"
+                              })
     message = models.TextField(max_length=1000, default=u"Message")
 
     class Meta:

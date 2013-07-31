@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from models import Services, Settings, About, QuickMessages, Blog
+from models import Settings, About, QuickMessages, Blog
 from django.contrib.auth.models import User, Group
 
 
@@ -23,7 +23,6 @@ class AdminQuickMessage(admin.ModelAdmin):
 class AdminBlog(admin.ModelAdmin):
     pass
 
-admin.site.register(Services, AdminServices)
 admin.site.register(Settings, AdminSettings)
 admin.site.register(About, AdminAbout)
 admin.site.register(QuickMessages, AdminQuickMessage)

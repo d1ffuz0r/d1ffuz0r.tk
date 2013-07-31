@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from feed import BlogRss
-from models import About, Services, Settings
+from models import About, Settings
 from django.conf.urls import patterns, url
 from django.views.generic.list import ListView
 
@@ -12,9 +12,6 @@ urlpatterns = patterns('',
     url(r'^about/', ListView.as_view(queryset=About.objects.all(),
         context_object_name="about",
         template_name="about.haml")),
-    url(r'^skills/', ListView.as_view(queryset=Services.objects.all(),
-        context_object_name="skills",
-        template_name="skills.haml")),
     url(r'^contacts/', ListView.as_view(model=Settings,
         context_object_name="contacts",
         template_name="contacts.haml")),
